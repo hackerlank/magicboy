@@ -1,0 +1,34 @@
+服务器
+180.96.15.122
+
+使用的端口号
+1935
+1111
+
+目录
+fms: /opt/adobe/fms/
+app: /opt/adobe/fms/applications
+
+fms控制台
+fms / fmsxianxia
+
+安装
+redhat安装fms有点问题，缺省状态下不能安装，提示缺少库libcap
+解决办法：ln -s /lib64/libcap.so.2 /lib64/libcap.so.1
+./installFMS
+
+启动
+cd /opt/adobe/fms/
+./server start
+
+停止
+cd /opt/adobe/fms/
+./server stop
+
+序列号
+4.5
+1462-5314-9421-9730-0612-8465
+4.0
+1462-5843-1883-8230-4027-8914
+fBGjJ7k9wP7dgQzbID2ASYXYNROD5P
+

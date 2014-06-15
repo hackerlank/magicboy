@@ -1,0 +1,12 @@
+表情：
+1、在images\biaoqing目录下添加表情图片
+2、在room.php里，添加表情图片显示
+3、在AppConfig.php里配置表情名称和图片的转化关系
+
+道具：
+1、AppConfig.php里配置imgBase
+2、room.js里配置imgBase
+3、ChatService.php里getPropImageSrc函数
+return AppConfig::get('imgBase') . "propinfo/{$id}.jpg";
+上传的道具如果更改上传目录，需要修改代码！
+

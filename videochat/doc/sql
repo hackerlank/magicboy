@@ -1,0 +1,246 @@
+-- MySQL dump 10.13  Distrib 5.5.8, for Win32 (x86)
+--
+-- Host: 127.0.0.1    Database: videochat
+-- ------------------------------------------------------
+-- Server version	5.5.8
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin` (
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) NOT NULL DEFAULT '0',
+  `passwd` varchar(32) NOT NULL DEFAULT '0' COMMENT '密码',
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后一次登录时间',
+  `ip` varchar(32) NOT NULL DEFAULT '0' COMMENT '最后一次登录IP',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq` (`name`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='管理员';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `bar_boss`
+--
+
+DROP TABLE IF EXISTS `bar_boss`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bar_boss` (
+  `name` varchar(32) NOT NULL DEFAULT '0' COMMENT '用户名',
+  `passwd` varchar(32) NOT NULL DEFAULT '0' COMMENT '密码',
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后一次登录时间',
+  `ip` varchar(32) NOT NULL DEFAULT '0' COMMENT '最后一次登录IP',
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq` (`name`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='网吧老板';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `black`
+--
+
+DROP TABLE IF EXISTS `black`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `black` (
+  `uid` varchar(64) NOT NULL DEFAULT '0' COMMENT '用户id',
+  `speak` int(10) NOT NULL DEFAULT '0' COMMENT '禁言到几时;-1表示永久',
+  `login` int(10) NOT NULL DEFAULT '0' COMMENT '禁登录到几时;-1表示永久',
+  PRIMARY KEY (`uid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='黑名单';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `card_1`
+--
+
+DROP TABLE IF EXISTS `card_1`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `card_1` (
+  `seq` char(16) NOT NULL DEFAULT '0' COMMENT '串码',
+  PRIMARY KEY (`seq`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='刷夜卡';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `card_2`
+--
+
+DROP TABLE IF EXISTS `card_2`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `card_2` (
+  `seq` char(16) NOT NULL DEFAULT '0' COMMENT '卡号',
+  `uid` varchar(64) NOT NULL DEFAULT '0' COMMENT '使用该卡的用户id',
+  `time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '使用时间 不为0则认为该卡发过道具',
+  `ip` varchar(16) NOT NULL DEFAULT '0' COMMENT '用户IP',
+  PRIMARY KEY (`seq`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='活色生香';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `card_3`
+--
+
+DROP TABLE IF EXISTS `card_3`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `card_3` (
+  `seq` char(16) NOT NULL DEFAULT '0' COMMENT '卡号',
+  `uid` varchar(64) NOT NULL DEFAULT '0' COMMENT '领道具的用户id',
+  `ip` varchar(16) NOT NULL DEFAULT '0' COMMENT '领道具的用户IP',
+  `prop_time` datetime NOT NULL COMMENT '领道具时间，如果不为0则认为领过',
+  `drink_time` datetime NOT NULL COMMENT '领取饮料时间，如果不为0则认为领过',
+  `drink_operator_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '发饮料的网吧老板id',
+  PRIMARY KEY (`seq`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='生龙活虎';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `card_info`
+--
+
+DROP TABLE IF EXISTS `card_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `card_info` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) NOT NULL DEFAULT '0' COMMENT '卡名',
+  `prop_list` varchar(128) NOT NULL DEFAULT '0' COMMENT '道具列表(id-num;id-num;)',
+  `desc` varchar(128) DEFAULT NULL COMMENT '简单说明',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='卡信息';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `face_info`
+--
+
+DROP TABLE IF EXISTS `face_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `face_info` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `url` varchar(128) NOT NULL COMMENT '表情图片url',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='表情信息';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `moderator`
+--
+
+DROP TABLE IF EXISTS `moderator`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `moderator` (
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) NOT NULL COMMENT '主持登录名',
+  `nick` varchar(32) DEFAULT NULL COMMENT '主持人昵称',
+  `passwd` varchar(32) DEFAULT NULL COMMENT '登录密码',
+  `score` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '分数',
+  `url` varchar(128) NOT NULL DEFAULT '0' COMMENT '头像url地址',
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后登录时间',
+  `ip` varchar(32) NOT NULL DEFAULT '0' COMMENT '最后登录IP',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq` (`name`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='主持人';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `moderator_worktime`
+--
+
+DROP TABLE IF EXISTS `moderator_worktime`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `moderator_worktime` (
+  `mid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '主持人id',
+  `start` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '开始时间',
+  `total` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '本次总时间(小时)',
+  PRIMARY KEY (`mid`,`start`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='主持人工作时间流水记录';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `prop_info`
+--
+
+DROP TABLE IF EXISTS `prop_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `prop_info` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) DEFAULT NULL COMMENT '道具名称',
+  `url` varchar(128) CHARACTER SET latin1 NOT NULL DEFAULT '0' COMMENT '道具图片地址',
+  `score` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '分数',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq` (`name`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='道具信息';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `uid` varchar(64) NOT NULL DEFAULT '0' COMMENT '用户id',
+  `privilege` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '权限，目前只有0/1两种。0：不能讲话；1：能讲话',
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建档时间',
+  `score` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '分数',
+  `face_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '头像id',
+  `level` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '游戏级别',
+  `nick` varchar(64) NOT NULL COMMENT '游戏昵称',
+  `area` varchar(32) NOT NULL COMMENT '游戏大区',
+  PRIMARY KEY (`uid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户权限';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `user_prop`
+--
+
+DROP TABLE IF EXISTS `user_prop`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_prop` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uid` varchar(64) CHARACTER SET latin1 NOT NULL DEFAULT '0' COMMENT '用户id',
+  `prop_id` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '道具id',
+  `num` int(4) unsigned NOT NULL DEFAULT '0' COMMENT '道具数量',
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后修改时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq` (`uid`,`prop_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='用户道具';
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2012-10-17 16:45:29

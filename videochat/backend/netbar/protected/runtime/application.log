@@ -1,0 +1,745 @@
+2012/09/29 09:48:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in D:\videochat\code\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('gii')
+#1 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#3 {main}
+REQUEST_URI=/netbar/index-test.php?r=gii
+---
+2012/09/29 10:11:13 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\videochat\code\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\videochat\code\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\videochat\code\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\videochat\code\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\videochat\code\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\videochat\code\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('card3/admin')
+#9 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#11 {main}
+REQUEST_URI=/netbar/index-test.php?r=card3/admin
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php?r=card3/index
+---
+2012/10/06 22:41:30 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:41:30 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:55 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:55 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:56 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:56 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:56 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:56 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:56 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:56 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:57 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:57 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:57 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:57 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:57 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:57 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:57 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:57 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:57 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:57 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:58 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:42:58 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:44:17 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:44:17 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:44:19 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:44:19 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:44:19 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:44:19 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:44:19 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---
+2012/10/06 22:44:19 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.verifyCode" 未被定义.' in D:\videochat\code\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\videochat\code\yii\framework\web\helpers\CHtml.php(2158): CComponent->__get('verifyCode')
+#1 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(LoginForm), 'verifyCode')
+#2 D:\videochat\code\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(LoginForm), 'verifyCode', Array)
+#3 D:\videochat\code\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(LoginForm), 'verifyCode', Array)
+#4 D:\videochat\code\backend\netbar\protected\views\site\login.php(48): CActiveForm->textField(Object(LoginForm), 'verifyCode')
+#5 D:\videochat\code\yii\framework\web\CBaseController.php(127): require('D:\videochat\co...')
+#6 D:\videochat\code\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\videochat\co...', Array, true)
+#7 D:\videochat\code\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\videochat\co...', Array, true)
+#8 D:\videochat\code\yii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 D:\videochat\code\backend\netbar\protected\controllers\SiteController.php(98): CController->render('login', Array)
+#10 D:\videochat\code\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 D:\videochat\code\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 D:\videochat\code\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 D:\videochat\code\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\videochat\code\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#15 D:\videochat\code\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#16 D:\videochat\code\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\videochat\code\backend\netbar\index-test.php(18): CApplication->run()
+#18 {main}
+REQUEST_URI=/netbar/index-test.php?r=site/login
+HTTP_REFERER=http://admin.soso.com/netbar/index-test.php
+---

@@ -1,0 +1,34 @@
+整体结构
+web <--> swf <--> fms <--> amfphp <--> ChatService
+消息发送、礼物发送等通讯功能由视频1的swf完成，其它两个swf仅完成视频功能。
+3个swf在源代码上是完全一致的，服务器端主要功能在视频1上(room_1)
+用户登录信息的传递是通过session完成的
+
+
+amfphp 一个php的amf框架，直接从网站下载的
+
+以下为 videochat 目录包含的内容：
+class 类目录
+	AppConfig.php 配置文件
+	User.php 用户相关操作
+	PDODB.php 数据库访问包装类
+fms
+	client 客户端代码，用flex开发
+		roomVideo.mxml 客户端主要代码
+		my 客户端辅助代码
+		assets 客户端图片资源
+	server 服务器端代码
+		room_1 视频1
+		room_1v 视频2 （视频2和3的代码完全一致）
+		room_t 视频3
+web
+	room.php 聊天室
+	room.inc.php 聊天室非UI部分代码
+	roomVideo.swf 客户端flash
+	js
+		room.js 聊天室js
+		swfobject.js flash js
+	service
+		index.php amfphp框架入口文件
+		Services
+			ChatService.php 为fms提供服务的后台代码

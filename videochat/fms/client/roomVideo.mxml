@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   width="250" height="200" minWidth="250" minHeight="200" backgroundColor="#62E8E0"
+			   initialize="initApp();">
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			import mx.core.FlexGlobals;
+			import spark.events.IndexChangeEvent;			
+			import my.*;
+
+			[Bindable]
+			[Embed(source="assets/mic.png")]
+			private var icon_mic: Class;
+			[Bindable]
+			[Embed(source="assets/mic_mute.png")]
+			private var icon_mic_mute: Class;
+			[Bindable]
+			[Embed(source="assets/wav.png")]
+			private var icon_wav: Class;
+			[Bindable]
+			[Embed(source="assets/wav_mute.png")]
+			private var icon_wav_mute: Class;
+			
+			[Bindable]
+			public var videos: ArrayCollection = new ArrayCollection([ 
+				{label:"请选择", data:""},
+				{label:"周杰伦", data:"zhoujielun"},
+				{label:"蔡依林", data:"caiyilin"},
+				{label:"谢霆锋", data:"xietingfeng"},
+				{label:"张柏芝", data:"zhangbozhi"},
+				{label:"卡姿莱", data:"1kazilai"},
+				{label:"大运摩托", data:"1dayunmotuo"},
+				{label:"优乐美", data:"1youlemei"},
+				{label:"爱玛", data:"1aima"},
+				{label:"海飞丝", data:"1haifeisi"},
+				{label:"河东狮吼", data:"1hedongshihou"},
+				{label:"无极", data:"1wuji"},
+				{label:"以下无声", data:""},
+				{label:"卡姿莱", data:"kazilai"},
+				{label:"大运摩托", data:"dayunmotuo"},
+				{label:"优乐美", data:"youlemei"},
+				{label:"爱玛", data:"aima"},
+				{label:"海飞丝", data:"haifeisi"},
+				{label:"河东狮吼", data:"hedongshihou"},
+				{label:"无极", data:"wuji"}
+			]); 
+
+			private var nc: NetConnection;
+			private var ns: NetStream;
+			private var video: Video;
+			private var so: SharedObject;
+			
+			private var cam: Camera;
+			private var mic: Microphone;
+			
+			[Bindable]
+			private var vparam: VideoItemParameter;
+			private var vstate: int = 0; // 0-空闲  1-播放中  2-直播发布中  3-上传文件发布中
+			
+			private var cam_timer: uint;
+			private var cam_counter: uint = 0;
+			
+			private var oldMicVolumn: Number = 50;
+			private var oldWavVolumn: Number = 50;
+			private var wavVolumn: SoundTransform;
+			
+			private function initApp(): void{
+				FlexGlobals.topLevelApplication.addEventListener(MouseEvent.ROLL_OUT, setSRF);
+				
+				vparam = readParameters();
+				initUI();				
+				initFuncs();
+				ExternalInterface.call("onInitCompelete", vparam.vid);
+			}
+			
+			public function doConnect(): void{
+				nc = new NetConnection();
+				nc.client = new NCClientObject(this);
+				nc.objectEncoding = ObjectEncoding.AMF3;
+				nc.addEventListener(NetStatusEvent.NET_STATUS, nc_OnStatus);
+				nc.addEventListener(AsyncErrorEvent.ASYNC_ERROR, nc_OnAsyncError);
+				nc.connect(vparam.getAppURL(), vparam.sid, vparam.rid, vparam.vid);
+			}
+			
+			public function doDisconnect(): void {
+				doStop();
+				if(nc && nc.connected){
+					nc.close();
+				}
+				nc = null;
+			}
+			
+			public function doPublish(): void {
+				if(!nc.connected){
+					Alert.show('尚未连接');
+					return;
+				}
+				if(vstate != 0) return; // 当前正在发布和播放
+
+				// 检查摄像头
+				cam = Camera.getCamera();
+				if(cam == null){
+					Alert.show('没有检测到摄像头');
+					return;
+				}
+
+				ns = new NetStream(nc);
+				cam.setMode(vparam.cam_width, vparam.cam_height, vparam.cam_fps);
+				//cam.setQuality(70*1000, 80); // 70K
+				cam.setQuality(vparam.cam_bd, vparam.cam_quality);
+				if(vparam.cam_keyFrame > 0){
+					cam.setKeyFrameInterval(vparam.cam_keyFrame);
+				}
+				cam.addEventListener(StatusEvent.STATUS, cam_onStatus);
+				//cam.addEventListener(ActivityEvent.ACTIVITY, cam_activity);
+				ns.attachCamera(cam);
+
+				mic = Microphone.getMicrophone();
+				if(mic != null){
+					mic.rate = vparam.mic_rate;
+					mic.gain = vparam.mic_gain;
+					mic.setUseEchoSuppression(false);
+					ns.attachAudio(mic);
+				}
+				else{
+					//Alert.show('没有检测到麦克风');
+				}
+				
+				var streamName: String = vparam.getStreamName();
+				ns.addEventListener(NetStatusEvent.NET_STATUS, ns_onStatus);
+				ns.addEventListener(AsyncErrorEvent.ASYNC_ERROR, ns_onSyncErr);
+				ns.publish(streamName, "live");
+				video.attachCamera(cam);
+				video.visible = true;
+
+				vstate = 2;
+			
+				var soObj: Object = {videoName: streamName, uid: vparam.uid, nick: vparam.nick, score: vparam.score, type: 'publish'};
+				so.setProperty('video', soObj);
+				
+				fireVideoPublishEvent();
+			}
+			
+			private function doView(streamName: String): void{ // 自动调用，无须判断当前状态
+				setTimeout(function(): void{
+					ns = new NetStream(nc);
+					// 非直播时，缓冲
+					ns.bufferTime = streamName != vparam.getStreamName() ? 1 : 0;
+					ns.client = new NSClientObject();
+					ns.addEventListener(NetStatusEvent.NET_STATUS, ns_onStatus);
+					ns.addEventListener(AsyncErrorEvent.ASYNC_ERROR, ns_onSyncErr);
+					ns.play(streamName);
+					video.attachNetStream(ns);
+					video.visible = true;
+					
+					vstate = 1;
+					fireVideoPublishEvent();
+				}, 500); // 延迟1秒播放，避免看到以前的图片
+			}
+			
+			private function doPublishView(streamName: String): void{
+				if(!nc.connected){
+					Alert.show('尚未连接');
+					return;
+				}
+				if(vstate != 0) return; // 当前正在发布和播放
+
+				ns = new NetStream(nc);
+				// 非直播时，缓冲
+				ns.bufferTime = streamName != vparam.getStreamName() ? 1 : 0;
+				ns.client = new NSClientObject();
+				ns.addEventListener(NetStatusEvent.NET_STATUS, ns_onStatus);
+				ns.addEventListener(AsyncErrorEvent.ASYNC_ERROR, ns_onSyncErr);
+				ns.play(streamName, 0);
+				video.attachNetStream(ns);
+				video.visible = true;
+				vstate = 3;
+
+				var soObj: Object = {videoName: streamName, uid: vparam.uid, nick: vparam.nick, score: vparam.score, type: 'publishView'};
+				so.setProperty('video', soObj);
+
+				fireVideoPublishEvent();
+			}
+			
+			public function doStop(): void{
+				if(vstate == 0) return;
+				
+				if(ns){
+					if(vstate == 2){
+						mic = null;
+						ns.attachCamera(null);
+						ns.attachAudio(null);
+					}
+					else if(vstate == 3){ // 播放需要主动修改
+						so.setProperty('video', null);
+					}
+					ns.close();	
+				}
+				video.attachNetStream(null);
+				video.visible = false;
+				
+				vstate = 0;
+				fireVideoUnpublishEvent();
+			}
+
+			public function doSendMsg(s: String, to: String, font: String, color: String, size: String): void {
+				nc.call("sendMsg", null, s, to, font, color, size);
+			}
+			
+			public function doSendGift(propid: int, count: int, to: String, propName: String): void {
+				nc.call("sendGift", null, propid, count, to, propName);
+			}
+			
+			public function doBan(uid: String): void{
+				nc.call("ban", null, uid);
+			}
+
+			////////////////// event
+			
+			private function doConnectSuccess(): void{
+		
+				so = SharedObject.getRemote("so", nc.uri, false);
+				so.addEventListener(SyncEvent.SYNC, so_OnSync);
+				so.connect(nc);
+				ExternalInterface.call("onConnectSuccess", vparam.vid);
+				/* 带宽检测
+				if(vparam.vid == 1){
+					nc.call("checkBandwidth", null);
+				}
+				*/
+			}
+			
+			private function doConnectFailed(): void{
+				ExternalInterface.call("onConnectFailed", vparam.vid);
+			}
+			
+			private function doConnectRejected(reason: String): void{
+				var msg: String = "";
+				switch(reason){
+					case "invalid":
+						msg = "非法用户！";
+						break;
+					case "replogin":
+						msg = "请不要重复登录本聊天室！";
+						break;
+					case "maxuser":
+						msg = "服务器超出最大用户数";
+						break;
+					case "black":
+						msg = "您已被禁止登录";
+						break;
+				}
+				ExternalInterface.call("doConnectRejected", vparam.vid, msg);
+			}
+			
+			private function doConnectClosed(): void{
+				ExternalInterface.call("onConnectClosed", vparam.vid);
+			}
+			
+			private function nc_OnStatus(evt: NetStatusEvent): void{
+				switch(evt.info.code){
+					case "NetConnection.Connect.Success":
+						doConnectSuccess();
+						break;
+					case "NetConnection.Connect.Rejected":
+						var msg: String = evt.info.application.message;
+						doConnectRejected(msg);
+						break;
+					case "NetConnection.Connect.Failed":
+						doConnectFailed();
+						break;
+					case "NetConnection.Connect.Closed":
+						doConnectClosed();
+						break;
+					case "NetConnection.Connect.AppShutDown":
+						break;
+				}
+			}
+			
+			private function nc_OnAsyncError(evt: AsyncErrorEvent): void {
+			}
+			
+			private function ns_onStatus(evt: NetStatusEvent): void{
+				// 循环播放：如果碰到播放结束，并且不是直播时，跳回到第一帧
+				if(evt.info.code == "NetStream.Play.Stop"){
+					if(vstate != 0){
+						ns.seek(0);
+					}
+				}
+				//debug('ns_onStatus: ' + evt.info.code + ' vid: ' + vparam.vid);
+				/*
+				var streamName: String = vparam.getStreamName();
+				switch(evt.info.code){
+					// publisher
+					case "NetStream.Publish.Start":
+						ExternalInterface.call('doAddMsg', 'NetStream.Publish.Start ' + so.data[streamName]);						
+						video.attachCamera(cam);
+						video.visible = true;
+						break;
+					case "NetStream.Unpublish.Success":
+						video.attachNetStream(null);
+						video.visible = false;
+						break;
+					case "NetStream.Publish.BadName":
+						video.attachNetStream(null);
+						video.visible = false;
+						break;
+					// viewer
+					case "NetStream.Play.Start":
+						video.attachNetStream(ns);
+						video.visible = true;
+						break;
+					case "NetStream.Play.Stop":
+						//video.attachNetStream(null);
+						//video.visible = false;
+						break;
+					case "NetStream.Play.UnpublishNotify":
+						//video.attachNetStream(null);
+						//video.visible = false;
+						break;
+				}
+				*/
+			}
+			
+			private function ns_onSyncErr(evt: AsyncErrorEvent): void {
+			}
+			
+			private function so_OnSync(evt: SyncEvent): void{
+				var hasVideoInfo: Boolean = !(so.data['video'] == null);
+				
+				if(vstate == 0){ // 空闲中，可能自动播放，但不可能自动发布
+					if(hasVideoInfo){
+						var videoName: String = so.data['video'].videoName;
+						doView(videoName);
+					}
+				}
+				else if(vstate == 1){ // 播放中，收到停止消息后，自动停止
+					if(!hasVideoInfo){
+						doStop();
+					}
+					
+				}
+				else if(vstate == 2){ // 发布中，不会自动停的
+					
+				}
+				else if(vstate == 3){ // 发布播放中
+					
+				}
+			}
+			
+			private function fireVideoUnpublishEvent(): void {
+				ExternalInterface.call("onVideoUnpublish", vparam.vid);
+			}
+			
+			private function fireVideoPublishEvent(): void {
+				// 如果是发布者，不能读取so，因为so是在server端设置，滞后了
+				if(vstate == 2 || vstate == 3){
+					ExternalInterface.call("onVideoPublish", vparam.vid, vparam.uid, vparam.nick, vparam.score);
+				}
+				else{
+					var streamName: String = vparam.getStreamName();
+					var soObj: Object = so.data['video'];
+					ExternalInterface.call("onVideoPublish", vparam.vid, soObj.uid, soObj.nick, soObj.score);
+				}
+			}
+			
+			private function cam_onStatus(evt: StatusEvent): void {
+				if(evt.code == "Camera.Muted"){
+					//trace("cam not be allowed");
+					doStop();
+				}
+				else if(evt.code == "Camera.Unmuted"){
+					//trace("cam allowed");
+					// 如果摄像头被占用，调用doStop
+					cam_counter = 0;
+					cam_timer = setInterval(checkCamCallBack, 100);
+				}
+			}
+			
+			private function cam_activity(evt: ActivityEvent): void {
+				//trace(evt);
+			}
+			
+			private function checkCamCallBack(): void {
+				cam_counter++;
+				if(cam.currentFPS > 0){
+					clearInterval(cam_timer);
+				}
+				else{
+					if(cam_counter >= 20){
+						clearInterval(cam_timer);
+						doStop();
+					}
+				}
+			}
+			
+
+			////////////////// private
+
+			private function readParameters(): VideoItemParameter {
+				var ret: VideoItemParameter = new VideoItemParameter();
+				var params: Object = FlexGlobals.topLevelApplication.parameters;
+				ret.sid = params.sid;
+				ret.rid = params.rid;
+				ret.vid = params.vid;
+				ret.appname = params.appname;
+				if(params.sip){
+					ret.sip = params.sip;
+				}
+				// 麦克风参数
+				if(params.rate){
+					ret.mic_rate = params.rate;
+				}
+				if(params.gain){
+					ret.mic_gain = params.gain;
+				}
+				// 摄像头参数
+				if(params.width){
+					ret.cam_width = params.width;
+				}
+				if(params.height){
+					ret.cam_height = params.height;
+				}
+				if(params.fps){
+					ret.cam_fps = params.fps;
+				}
+				if(params.bd){
+					ret.cam_bd = params.bd;
+				}
+				if(params.quality){
+					ret.cam_quality = params.quality;
+				}
+				if(params.keyFrame){
+					ret.cam_keyFrame = params.keyFrame; 
+				}
+				return ret;
+			}
+			
+			public function onInitRoom(info: Object): void {
+				vparam.uid = info.user.uid;
+				vparam.nick = info.user.nick;
+				vparam.role = info.user.role;
+				vparam.logo = info.user.logo;
+				vparam.score = info.user.score;
+				vparam.area = info.user.area;
+				vparam.level = info.user.level;
+				vparam.sex = info.user.sex;
+				vparam.occupation = info.user.occupation;
+				if(vparam.vid == 1){
+					ExternalInterface.call("onInitRoom", info);
+				}
+
+				if(vparam.role == 1){ // dj
+					this.addEventListener(MouseEvent.ROLL_OVER, function(): void{
+						panl.visible = true;
+					});
+					this.addEventListener(MouseEvent.ROLL_OUT, function(): void{
+						/*
+						setTimeout(function(){
+							panl.visible = false;
+						}, 30000);
+						*/
+					});
+				}
+			}
+			
+			private function initUI(): void{
+				updateMicVolumn();
+				updateWavVolumn();
+				this.addEventListener(MouseEvent.ROLL_OVER, function(): void{
+					if(vstate != 0){
+						panlWav.visible = true;
+					}
+				});
+				this.addEventListener(MouseEvent.ROLL_OUT, function(): void{
+					panlWav.visible = false;
+				});
+				wavVolumn = new SoundTransform();
+				// initUI
+				video = new Video();
+				video.smoothing = true;
+				video.visible = false;
+				container.addChild(video);
+			}
+			
+			private function initFuncs(): void{
+				ExternalInterface.addCallback("doConnect", doConnect);
+				ExternalInterface.addCallback("doDisconnect", doDisconnect);
+				if(vparam.vid == 1){
+					ExternalInterface.addCallback("doSendMsg", doSendMsg);
+					ExternalInterface.addCallback("doSendGift", doSendGift);
+					ExternalInterface.addCallback("doBan", doBan);
+				}
+				else{
+					ExternalInterface.addCallback("onInitRoom", onInitRoom);
+				}
+			}
+			
+			public function debug(s: String): void {
+				//ExternalInterface.call("doAddMsg", "[debug] "+s);
+			}
+			
+			private function setSRF(event: MouseEvent):void {
+				if(Capabilities.hasIME){
+					try{
+						if(!IME.enabled){
+							IME.enabled=true;
+						}
+						IME.conversionMode = IMEConversionMode.CHINESE;
+					}
+					catch(error:Error){
+					}
+				}
+				
+			}
+			
+			/////////////////////////
+
+			protected function btnPublish_clickHandler(event:MouseEvent):void
+			{
+				if(vstate == 0){
+					doPublish();
+				}
+				panl.visible = false;
+			}
+
+			protected function btnStop_clickHandler(event:MouseEvent):void
+			{
+				if(vstate == 2 || vstate == 3){
+					doStop();
+				}
+			}
+			
+			protected function btnPlay_clickHandler(event:MouseEvent):void
+			{
+				if(vstate == 0){
+					if(cbVideo.selectedItem.data != ""){
+						//Alert.show(cbVideo.selectedItem.data);
+						doPublishView(cbVideo.selectedItem.data);
+					}
+					else{
+						Alert.show("请选择要播放的视频。", "提示");
+						return;
+					}
+				}
+				panl.visible = false;
+			}
+
+			protected function btnClose_clickHandler(event:MouseEvent):void
+			{
+				panl.visible = false;
+			}
+			
+			private function updateMicVolumn(): void {
+				picMic.source = vparam.mic_gain > 0 ? icon_mic: icon_mic_mute;
+				if(vstate == 2){
+					if(mic != null){
+						mic.gain = vparam.mic_gain;
+					}
+				}
+			}
+			protected function hslider_changeHandler(event:Event):void
+			{
+				updateMicVolumn();
+			}
+			protected function picMic_clickHandler(event:MouseEvent):void
+			{
+				if(vparam.mic_gain == 0){
+					vparam.mic_gain = oldMicVolumn;
+				}
+				else{
+					oldMicVolumn = vparam.mic_gain;
+					vparam.mic_gain = 0;
+				}
+				updateMicVolumn();
+			}
+			
+			private function updateWavVolumn(): void {
+				picWav.source = vparam.wav_gain > 0 ? icon_wav : icon_wav_mute;
+				if(vstate != 0){
+					wavVolumn.volume = vparam.wav_gain;
+					ns.soundTransform = wavVolumn;
+				}
+			}
+			protected function hsliderWav_changeHandler(event:Event):void
+			{
+				updateWavVolumn();
+			}
+			protected function picWav_clickHandler(event:MouseEvent):void
+			{
+				if(vparam.wav_gain == 0){
+					vparam.wav_gain = oldWavVolumn;
+				}
+				else{
+					oldWavVolumn = vparam.wav_gain;
+					vparam.wav_gain = 0;
+				}
+				updateWavVolumn();
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<s:Image id="bgImg" x="0" y="0" width="250" height="200" source="@Embed('assets/05.jpg')" />
+	<s:SpriteVisualElement id="container" x="0" y="0" width="250" height="200"></s:SpriteVisualElement>
+	<s:Panel id="panl" visible="false" left="0" top="0" width="250" height="74"
+			 backgroundAlpha="0.0" borderVisible="true" dropShadowVisible="false" enabled="true"
+			 skinClass="spark.skins.spark.SkinnableContainerSkin">
+		<s:Button id="btnPublish" x="0" y="0" width="50" label="发布" click="btnPublish_clickHandler(event)"/>
+		<s:Button id="btnStop" x="50" width="50" label="停止" click="btnStop_clickHandler(event)"/>
+		<s:DropDownList id="cbVideo" dataProvider="{videos}" selectedIndex="0" x="102" y="0" width="80"/>
+		<s:Button id="btnPlay" x="182" width="45" label="播放" click="btnPlay_clickHandler(event)"/>
+		<mx:LinkButton x="227" width="23" label="x" click="btnClose_clickHandler(event)"/>
+		<s:Image id="picMic" x="2" y="22" click="picMic_clickHandler(event)" source="{icon_mic}"/>
+		<s:HSlider id="hslider" x="32" y="29" width="195" value="@{vparam.mic_gain}" change="hslider_changeHandler(event)"
+				   maximum="100" minimum="0"/>
+	</s:Panel>
+	<s:Panel id="panlWav" visible="false" x="1" y="142" width="229" height="32" backgroundAlpha="0.0" borderVisible="false" dropShadowVisible="false"
+			 skinClass="spark.skins.spark.SkinnableContainerSkin">
+		<s:Image id="picWav" x="2" y="0" source="{icon_wav}" click="picWav_clickHandler(event)"/>
+		<s:HSlider id="hsliderWav" x="32" y="7" width="195" change="hsliderWav_changeHandler(event)"
+				   maximum="1.0" minimum="0.0" stepSize="0.1" value="@{vparam.wav_gain}"/>
+	</s:Panel>
+</s:Application>

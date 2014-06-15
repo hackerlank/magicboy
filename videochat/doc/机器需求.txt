@@ -1,0 +1,11 @@
+一台FMS，两台数据库，两台前端机,其中FMS与两台前端要有外网
+硬件：
+2CPU（每个4核），内存32G+，数据库的机器有raid5
+
+软件：
+redhat6以上版本，64位系统。
+php5.3
+mysql5
+apache2.0以上版本
+memcache1.2以上版本
+nginx

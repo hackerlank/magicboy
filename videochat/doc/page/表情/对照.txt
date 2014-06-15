@@ -1,0 +1,12 @@
+phiz01.gif   /我来了
+phiz02.gif   /色色
+phiz03.gif   /大哭
+phiz04.gif   /我跑
+phiz05.gif   /狂晕
+phiz06.gif   /撞墙
+phiz07.gif   /恶魔
+phiz08.gif   /吐
+phiz09.gif   /可怜
+phiz10.gif   /亲亲
+phiz11.gif   /飞吻
+phiz12.gif   /欧耶

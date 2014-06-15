@@ -1,0 +1,166 @@
+2012/11/25 05:35:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index' and 'x'='x" 动作.' in /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php:484
+Stack trace:
+#0 /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php(271): CController->missingAction('index' and 'x'=...')
+#1 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(283): CController->run('index' and 'x'=...')
+#2 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/index' and...')
+#3 /home/website/oss.xianxiashijie.com/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/website/oss.xianxiashijie.com/backend/oss/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/index%27+and+%27x%27%3D%27x&
+---
+2012/11/25 05:35:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index' and 'x'='b" 动作.' in /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php:484
+Stack trace:
+#0 /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php(271): CController->missingAction('index' and 'x'=...')
+#1 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(283): CController->run('index' and 'x'=...')
+#2 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/index' and...')
+#3 /home/website/oss.xianxiashijie.com/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/website/oss.xianxiashijie.com/backend/oss/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/index%27+and+%27x%27%3D%27b&
+---
+2012/11/25 05:35:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index' and 'x'='x" 动作.' in /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php:484
+Stack trace:
+#0 /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php(271): CController->missingAction('index' and 'x'=...')
+#1 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(283): CController->run('index' and 'x'=...')
+#2 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/index' and...')
+#3 /home/website/oss.xianxiashijie.com/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/website/oss.xianxiashijie.com/backend/oss/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php
+---
+2012/11/25 05:35:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index' and 'x'='b" 动作.' in /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php:484
+Stack trace:
+#0 /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php(271): CController->missingAction('index' and 'x'=...')
+#1 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(283): CController->run('index' and 'x'=...')
+#2 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/index' and...')
+#3 /home/website/oss.xianxiashijie.com/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/website/oss.xianxiashijie.com/backend/oss/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php
+---
+2012/11/25 05:35:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index%' and 'x%'='x" 动作.' in /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php:484
+Stack trace:
+#0 /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php(271): CController->missingAction('index%' and 'x%...')
+#1 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(283): CController->run('index%' and 'x%...')
+#2 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/index%' an...')
+#3 /home/website/oss.xianxiashijie.com/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/website/oss.xianxiashijie.com/backend/oss/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/index%%27+and+%27x%%27%3D%27x&
+---
+2012/11/25 05:35:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index%' and 'xx'='" 动作.' in /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php:484
+Stack trace:
+#0 /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php(271): CController->missingAction('index%' and 'xx...')
+#1 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(283): CController->run('index%' and 'xx...')
+#2 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/index%' an...')
+#3 /home/website/oss.xianxiashijie.com/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/website/oss.xianxiashijie.com/backend/oss/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/index%%27+and+%27xx%27%3D%27&
+---
+2012/11/25 05:35:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index%' and 'x%'='x" 动作.' in /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php:484
+Stack trace:
+#0 /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php(271): CController->missingAction('index%' and 'x%...')
+#1 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(283): CController->run('index%' and 'x%...')
+#2 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/index%' an...')
+#3 /home/website/oss.xianxiashijie.com/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/website/oss.xianxiashijie.com/backend/oss/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php
+---
+2012/11/25 05:35:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index%' and 'xx'='" 动作.' in /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php:484
+Stack trace:
+#0 /home/website/oss.xianxiashijie.com/yii/framework/web/CController.php(271): CController->missingAction('index%' and 'xx...')
+#1 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(283): CController->run('index%' and 'xx...')
+#2 /home/website/oss.xianxiashijie.com/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/index%' an...')
+#3 /home/website/oss.xianxiashijie.com/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /home/website/oss.xianxiashijie.com/backend/oss/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php
+---
+2012/11/26 10:53:16 [info] [login] normal:id:1 name:admin ip:123.120.133.202
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/components/UserIdentity.php (35)
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/models/LoginForm.php (41)
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/SiteController.php (40)
+2012/11/26 15:04:22 [warning] [application] Failed to set unsafe attribute "imgfile" of "Moderator".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/ModeratorController.php (78)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 15:04:50 [warning] [application] Failed to set unsafe attribute "imgfile" of "Moderator".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/ModeratorController.php (78)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 15:05:15 [warning] [application] Failed to set unsafe attribute "imgfile" of "Moderator".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/ModeratorController.php (78)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 15:06:30 [warning] [application] Failed to set unsafe attribute "imgfile" of "Moderator".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/ModeratorController.php (78)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 15:07:54 [warning] [application] Failed to set unsafe attribute "imgfile" of "Moderator".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/ModeratorController.php (78)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 15:08:21 [warning] [application] Failed to set unsafe attribute "imgfile" of "Moderator".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/ModeratorController.php (78)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 15:45:06 [info] [login] normal:id:1 name:admin ip:61.135.172.70
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/components/UserIdentity.php (35)
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/models/LoginForm.php (41)
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/SiteController.php (40)
+2012/11/26 16:34:09 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:35:39 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:35:49 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:36:10 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:36:21 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:36:24 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:36:32 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:36:43 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:36:52 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:37:01 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:37:03 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:37:11 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:37:20 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:37:35 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:37:50 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:37:57 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:38:04 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:38:10 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:38:16 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
+2012/11/26 16:38:18 [warning] [application] Failed to set unsafe attribute "imgfile" of "PropInfo".
+in /home/website/oss.xianxiashijie.com/backend/oss/protected/controllers/PropInfoController.php (102)
+in /home/website/oss.xianxiashijie.com/backend/oss/index.php (13)
